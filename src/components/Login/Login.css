@@ -1,11 +1,17 @@
+*{
+    margin: 0%;
+}
 .backgroundImg {
-    background-image: url(/public/images/LOGIN.png);
+    background-image: url(/src/components/Login/login_background.png);
     background-repeat: no-repeat;
-    height: 100vh;
+    /* height: 100vh; */
+    height: 100%;
+    background-position: center;
     background-size: cover;
+    
 }
 .logo {
-    background-image: url(/public/images/Background.png);
+    /* background-image: url(/public/images/Background.png); */
     background-repeat: no-repeat;
     background-position-x: 25%;
     background-position-y: center;
@@ -17,52 +23,58 @@
     justify-content: center;
 }
 .dummy {
-    flex: 57%;
+    flex: 60%;
+
 }
 .login-container {
     box-shadow: 2px 2px rgba(128, 128, 128, 0.3);
     border-radius: 12px;
     display: flex;
     justify-content: center;
-    /* width: 200px; */
+    /* width: "200px"; */
     background-color: white;
     flex-direction: row;
-    flex: 30%;
-    margin-left: 20rem;
+    flex: 28%;
+    margin-left: 15rem;
 }
 .dummy2 {
-    flex: 10%;
+    flex: 8%;
 }
 .input-container {
-    margin: 5rem 2rem 5rem 2rem;
+    margin: 5rem 3rem 6rem 2rem;
 }
 Input {
     border: none;
 }
 .heading {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
 }
 .heading h2 {
     font-weight: 400;
     color: #043752;
+    font-size: x-large;
+    font-family: sans-serif;
 }
 .heading span {
-    font-weight: 450;
+    font-weight: 500;
+    font-size: xx-large;
     color: #043752;
+    margin-right: 2rem
 }
 button {
     padding: 3px 0px 3px 0px;
     width: 100%;
     background-color: #2C566D;
-    border-radius: 5px;
+    border-radius: 4px;
     color: rgba(255, 255, 255, 0.833);
     height: 2rem;
 }
 .input {
     width: 100%;
-    background-color: rgb(155, 169, 196);
+    background-color: rgb(232,240,254);
     border-radius: 5px;
-    color: #043752;
+    /* color: #043752; */
     border: none;
     margin: 1rem 0rem;
 }
@@ -78,16 +90,21 @@ button {
 @media (max-width:940px){
     .logo{
         background-position-x:15% ;
+        background-position-y:15% ;
 
     }
     .dummy{
-        flex: 55%;
+        flex: 5%;
     }
     .login-container{
-        flex: 40%;
+        flex: 10%;
+       
     }
     .dummy2{
-        flex:10%
+        flex:40%
+    }
+    .backgroundImg{
+        background-image: url(/src/components/Login/LOGIN.png)
     }
 }
 
@@ -109,7 +126,8 @@ button {
 }
 @media(max-width:580px){
     .backgroundImg{
-        height: 100vh;
+        /* height: 100vh; */
+        background-image: url(/src/components/Login/blue.jpg);
     }
     .logo{
         background-image:none ;
@@ -120,11 +138,12 @@ button {
     .login-container{
         flex: 40%;
         margin-left: auto;
-        height: 70vh;
+        height: 50vh;
         width: 100vw;
         display: block;
         justify-content: center;
         align-items: center;
+        box-shadow:none
     }
     .dummy2{
         flex:15%
@@ -132,7 +151,7 @@ button {
 }
 @media  (max-width:475px){
     .backgroundImg{
-        background-image: none;
+        background-image: url(/src/components/Login/blue.jpg);
         height: 100vh;
     }
     .logo{
@@ -151,7 +170,8 @@ button {
         justify-content: center;
         align-items: center;
         border-radius: 3.5px;
-        border: #043752 2px solid;
+        border: none;
+        box-shadow: none
     }
     .dummy{
         flex: 0%;

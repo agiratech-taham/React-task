@@ -1,7 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { Button, Typography } from "@mui/material";
-
+import Datepick from "./datepicker";
 const Bar1 = (props) => {
   const data = {
     options: {
@@ -23,9 +23,11 @@ const Bar1 = (props) => {
   return (
     <div className="app">
       <div style={{ display: "flex" }}>
-        <p style={{ fontSize: "0.7rem", color: "#043752" }}>Onboarded 200</p>
+        <pre style={{ fontSize: "0.6rem", color: "#043752" }}>
+          Onboarded 200
+        </pre>
         {/* <button style={{ marginLeft: "8.5rem", width: "5rem" }}>Button</button> */}
-        <Button
+        {/* <Button
           variant="outlined"
           style={{
             color: "#043752",
@@ -35,7 +37,9 @@ const Bar1 = (props) => {
           // variant="contained"
         >
           <Typography>Input</Typography>
-        </Button>
+        </Button> */}
+
+        <Datepick />
       </div>
       <div className="row">
         <div className="mixed-chart">

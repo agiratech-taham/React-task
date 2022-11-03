@@ -1,6 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { Button, Typography } from "@mui/material";
+import Datepick from "./datepicker";
 
 const Donut2 = (props) => {
   const value = {
@@ -11,9 +12,9 @@ const Donut2 = (props) => {
   return (
     <div className="donut">
       <div style={{ display: "flex" }}>
-        <p style={{ color: "#043752", fontSize: "0.7rem" }}>Collection</p>
+        <pre style={{ color: "#043752", fontSize: "0.6rem" }}>Collection    </pre>
         {/* <button style={{ marginLeft: "10rem", width: "5rem" }}>Button </button> */}
-        <Button
+        {/* <Button
           variant="outlined"
           style={{
             color: "#043752",
@@ -23,7 +24,8 @@ const Donut2 = (props) => {
           // variant="contained"
         >
           <Typography>Input</Typography>
-        </Button>
+        </Button> */}
+        <Datepick />
       </div>
       <br />
       {/* <br /> */}

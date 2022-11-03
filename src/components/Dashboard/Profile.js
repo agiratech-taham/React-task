@@ -3,13 +3,17 @@ import { Button, Typography } from "@mui/material";
 import Organization from "./icons8-organization-64.png";
 import doctors from "./icons8-doctor-64.png";
 import staff from "./icons8-administration-64.png";
+import Datepick from "./datepicker";
+
 // src\components\Dashboard\Organisation.png
 function Image() {
   return (
     <div>
       <div style={{ display: "flex" }}>
-        <p style={{ fontSize: "0.7rem", color: "#043752" }}>User Logins 10</p>
-        <Button
+        <pre style={{ fontSize: "0.6rem", color: "#043752" }}>
+          User Logins 10
+        </pre>
+        {/* <Button
           variant="outlined"
           style={{
             color: "#043752",
@@ -18,7 +22,8 @@ function Image() {
           }}
         >
           <Typography>Input</Typography>
-        </Button>
+        </Button> */}
+        <Datepick />
       </div>
       <div
         style={{

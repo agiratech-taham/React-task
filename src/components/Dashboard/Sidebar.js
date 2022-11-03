@@ -1,16 +1,20 @@
-import * as React from "react";
+// import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
+// import Divider from '@mui/material/Divider';
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
+// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
+// import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Badge from "@mui/material/Badge";
 import Paper from "@mui/material/Paper";
@@ -24,6 +28,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import Profile from "./Profile";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { AccountCircle } from "@mui/icons-material";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
@@ -37,11 +42,10 @@ import PublicIcon from "@mui/icons-material/Public";
 import MonitorIcon from "@mui/icons-material/Monitor";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import FlagIcon from "@mui/icons-material/Flag";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
-import TextField from "@mui/material/TextField";
-
+import LogoutIcon from "@mui/icons-material/Logout";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useNavigate } from "react-router-dom";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: (theme.palette.mode = "rgb(213, 216, 222)"),
   ...theme.typography.body2,
@@ -79,12 +83,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-
+    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     backgroundColor: "white",
     // chng
     width: "100%",
+    // [theme.breakpoints.up("sm")]: {
+    //   width: "15ch",
+    //   "&:focus": {
+    //     width: "25ch",
+    //   },
+    // },
   },
 }));
 
@@ -101,14 +111,14 @@ function SidenavBar(props) {
   const drawer = (
     <div
       style={{
-        // marginTop: "4rem",
         backgroundColor: "#2C566D",
         height: "100vh",
         overflow: "hidden",
         borderRight: "solid 2px #2C66D",
-        border: "none",
       }}
     >
+      {/* <Toolbar style={{backgroundColor:'primary'}}/> */}
+      {/* <Divider /> */}
       <List style={{ paddingTop: "25%", overflow: "none", height: "90%" }}>
         {[
           <div
@@ -276,6 +286,21 @@ function SidenavBar(props) {
             <FlagIcon />
             <span>Activity log</span>
           </div>,
+          // "Dashboard",
+          // "Registration",
+          // "Accussion",
+          // "Operations",
+          // "User Management",
+          // "Centerr Managment",
+          // "Test Management",
+          // "Order Management",
+          // "Report Management",
+          // "Inventory",
+          // "Finance",
+          // "Monitor",
+          // "Analytics",
+          // "Advance Search",
+          // "Activity log",
         ].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton
@@ -285,6 +310,9 @@ function SidenavBar(props) {
                 color: "#043752",
               }}
             >
+              {/* <ListItemIcon> */}
+              {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+              {/* </ListItemIcon> */}
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -295,7 +323,7 @@ function SidenavBar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
+  const navigate = useNavigate();
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -316,41 +344,47 @@ function SidenavBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          {/* chng */}
           <Search
             sx={{ display: { xs: "none", sm: "block" } }}
-            style={{ color: "#043752" }}
+            style={{ color: "grey" }}
           >
-            <SearchIconWrapper>{<SearchIcon />}</SearchIconWrapper>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
             <StyledInputBase
-              style={{ backgroundColor: "white" }}
+              style={{ color: "grey" }}
               placeholder="Search Something.."
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          {/* chng */}
-          {/* <div style={{ width: "20%", height: "5%", backgroundColor: "white" }}>
-            <TextField
-              id="outlined-basic"
-              variant="outlined"
-              fullWidth
-              label="Search"
-            />
-          </div> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="error">
+                <MailIcon />
+              </Badge>
+            </IconButton> */}
             <IconButton
               size="large"
               aria-label="show 1 new notifications"
               color="inherit"
             >
               <Badge color="error">
-                <div style={{ fontSize: "0.5rem" }}>
-                  <CircleNotificationsIcon style={{ fontSize: "2rem" }} />
-                  <h3>Notifications</h3>
-                </div>
+                <CircleNotificationsIcon style={{ marginRight: "1rem" }} />
+                {/* <AccountCircle /> */}
               </Badge>
             </IconButton>
+            {/* <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              // aria-controls={menuId}
+              aria-haspopup="true"
+              // onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton> */}
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
@@ -359,10 +393,13 @@ function SidenavBar(props) {
               color="inherit"
             >
               <Badge color="error">
-                <div style={{ fontSize: "0.5rem" }}>
-                  <AccountCircleIcon style={{ fontSize: "2rem" }} />
-                  <h3>User</h3>
-                </div>
+                <LogoutIcon
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    navigate("/");
+                  }}
+                  style={{ marginRight: "1rem" }}
+                />
               </Badge>
             </IconButton>
           </Box>
